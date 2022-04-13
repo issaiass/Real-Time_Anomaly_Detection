@@ -9,8 +9,9 @@ The data platform we will create consists of three main components: a service th
 
 #### <b>Expected Outcome</b>
 <p align="center">
-<img src = "imgs/jupyter_cmd.PNG?raw=true" center=true width="85%"/>
-<img src = "imgs/jupyter_browser.PNG?raw=true" center=true width="85%"/>
+<img src = "imgs/dataset_viz.PNG?raw=true" center=true width="85%"/>
+<img src = "imgs/plotly_scatter.PNG?raw=true" center=true width="85%"/>
+<img src = "imgs/histogram.PNG?raw=true" center=true width="85%"/>
 </p>
 
 </details>
@@ -20,19 +21,19 @@ The data platform we will create consists of three main components: a service th
 ~~~
     docker build . -t issaiass/lp-jupyter:latest
 ~~~
-- Run a new container from an image
+- Run a new container from an image exposing the current folder
 ~~~
-    docker run -d --name project -p 8888:8888 issaiass/lp-jupyter:latest
+    docker run -d --name devtest -p 8888:8888 --mount type=bind,source="$(pwd)",target=/src issaiass/lp-jupyter    
 ~~~
 - Next get from the logs 
 ~~~
-    docker logs project    
+    docker logs devtest
 ~~~
 - Copy the token of the jupyter notebook first executing the log command and then copying the token link
 ~~~
     http://127.0.0.1:8888/?token=809e516fa4240841351910b14e5b094431125a7757f77cd9
 ~~~
-- Create a new notebook and do something.
+- Run the Exploration notebook.
 
 <details>
 <summary> <b>Resume of commands<b></summary>
@@ -65,6 +66,10 @@ The data platform we will create consists of three main components: a service th
 ~~~
     docker rmi -f $(docker images -aq) 
 ~~~
+- For mounting a new image
+~~~
+    docker run -d --name [container_name] -p 8888:8888 --mount type=bind,source="$(pwd)",target=/src [user/image_name]    
+~~
 
 <p align="center"> </p>
 </details>
