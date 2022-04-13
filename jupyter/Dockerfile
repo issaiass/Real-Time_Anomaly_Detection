@@ -7,6 +7,12 @@ RUN mkdir src
 # set the working directory
 WORKDIR src
 
+# copy the requirements
+COPY requirements.txt .
+
+# install basic requirements
+RUN pip install -r requirements.txt
+
 # install jupyter
 RUN pip install jupyter notebook
 
