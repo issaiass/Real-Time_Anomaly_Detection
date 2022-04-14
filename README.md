@@ -16,7 +16,9 @@ The data platform we will create consists of three main components: a service th
 
 </details>
 
-#### <b>Running the dockerfile and starting the notebook</b>
+<details open>
+<summary> <b>Running the docerfile and starting the notebook<b></summary>
+
 - Building the new container from the dockerfile folder
 ~~~
     docker build . -t issaiass/lp-jupyter:latest
@@ -35,8 +37,10 @@ The data platform we will create consists of three main components: a service th
 ~~~
 - Run the Exploration notebook.
 
+</details>
+
 <details>
-<summary> <b>Resume of commands<b></summary>
+<summary> <b>Resume of Docker Commands<b></summary>
 
 - For building the Dockerfile
 ~~~
@@ -68,15 +72,14 @@ The data platform we will create consists of three main components: a service th
 ~~~
 - For mounting a new image
 ~~~
-    docker run -d --name [container_name] -p 8888:8888 --mount type=bind,source="$(pwd)",target=/src [user/image_name]    
-~~
+    docker run -d --name [container_name] -p 8888:8888 --mount type=bind,source="$(pwd)",target=/src [user/image_name]
+~~~
 
-<p align="center"> </p>
 </details>
 
 
 <details>
-<summary> <b>Results<b></summary>
+<summary> <b>Video<b></summary>
 
 We will made a youtube video later
 
